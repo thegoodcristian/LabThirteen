@@ -25,6 +25,8 @@ public class RochamboApp {
 			
 			//Prompt user to select opponent. Validate input.
 			String userChoice = Validator.getString(scnr, "\nHi, " + userName + "!\nWould you like to play against the Dogs or the Cats? D/C: ");
+
+			if (userChoice.equalsIgnoreCase("c") || userChoice.equalsIgnoreCase("d")) {
 				if (userChoice.equalsIgnoreCase("d")){
 					opponent = new Dummy();
 				} else if (userChoice.equalsIgnoreCase("c")){
@@ -50,7 +52,15 @@ public class RochamboApp {
 			System.out.println("Your choice was " + userValue);
 			
 			//Display results of match. Write a separate method.
-			RochamboResult.displayResult(userValue, opponentValue);
+			RochamboResult.displayResult(userValue, opponentValue);	
+		
+			System.out.println("Win counter: " + RochamboResult.winCounter);
+
+			
+			} else {
+				System.out.println("\nPlease enter only c or d next time!");
+			}
+			
 			
 			// I ask if the user if they would like to continue, if "yes", while loop will
 			// begin again.
